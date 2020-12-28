@@ -1,17 +1,9 @@
-function showOrHideDiv() {
-    var v = document.getElementById("form_create_div");
-    var but = document.getElementById("butadd");
-    if (v.style.display === "none") {
-        v.style.display = "block";
-        but.textContent = "-";
-    } else {
-        v.style.display = "none";
-        but.textContent = "+";
-    }
-}
 
 function editImobil(...imobilAttributes){
     var form = document.getElementById("form_update_div");
+    var formCreate = document.getElementById("form_create_div");
+
+    formCreate.style.display ="none";
     const formElements = document.getElementById("form_update").elements;
 
     if(form.style.display === "none"){
