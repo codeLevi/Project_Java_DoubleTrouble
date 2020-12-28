@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tabel Imobile</title>
+    <meta charset="ISO-8859-1"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-theme.min.css}"/>
+    <script type="text/javascript" th:src="@{/js/imobil.js}"></script>
+
+</head>
+<body>
+<h4>Welcome to Thymeleaf Spring Boot web application</h4>
+
+<div class="container">
+    <button type="button" th:onclick="showOrHideDiv()" id="butadd">+</button>
+
+    <div id="form_create_div" style="display: none">
+        <form id="form_create" th:action="@{/addImobil}" th:object="${imobilNou}" method="post">
+            <label>
+                <input type="text" placeholder="Adresa" th:field="*{adresa}"/>
+            </label>
+            <label>
+                <input type="text" placeholder="Agent" th:field="*{agent}"/>
+            </label>
+            <label>
+                <input type="number" placeholder="Nr camere" th:field="*{nrCamere}"/>
+            </label>
+            <label>
+                <input type="number" placeholder="Suprafata" th:field="*{suprafata}"/>
+            </label>
+            <label>
+                <input type="text" placeholder="Tipul" th:field="*{tipul}"/>
+            </label>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+
+    <div id="form_update_div" style="display: none">
+        <form onsubmit="document.getElementById('form_update_div').style.display = 'none'" id="form_update"
+              th:action="@{/updateImobil}" th:object="${imobilVechi}" method="post">
+            <label>
+                <input type="number" th:placeholder="id" th:field="*{id}" readonly/>
+            </label>
+            <label>
+                <input type="text" th:placeholder="adresa" th:field="*{adresa}"/>
+            </label>
+            <label>
+                <input type="text" th:placeholder="agent" th:field="*{agent}"/>
+            </label>
+            <label>
+                <input type="number" th:placeholder="nr_camere" th:field="*{nrCamere}"/>
+            </label>
+            <label>
+                <input type="number" th:placeholder="suprafata" th:field="*{suprafata}"/>
+            </label>
+            <label>
+                <input type="text" th:placeholder="tipul" th:field="*{tipul}"/>
+            </label>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+    <table id="example" class="table  table-dark table-hover table-bordered" style="width: 100%">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Adresa</th>
+            <th>Agent</th>
+            <th>Nr Camere</th>
+            <th>Suprafata</th>
+            <th>Tip</th>
+        </tr>
+        </thead>
+        <tbody th:each="imobil1 : ${imobilList}">
+        <tr>
+            <td th:text="${imobil1.id}">A Smoke Test'</td>
+            <td th:text="${imobil1.adresa}">A Smoke Test'</td>
+            <td th:text="${imobil1.agent}">A Smoke Test'</td>
+            <td th:text="${imobil1.nrCamere}">A Smoke Test'</td>
+            <td th:text="${imobil1.suprafata}">A Smoke Test'</td>
+            <td th:text="${imobil1.tipul}">A Smoke Test'</td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Imobil Operations">
+                    <button name="update"
+                            th:onclick="editImobil([[${imobil1.id}]], [[${imobil1.adresa}]],[[${imobil1.agent}]],[[${imobil1.nrCamere}]],[[${imobil1.suprafata}]],[[${imobil1.tipul}]])"
+                            class="btn btn-primary">Edit Imobil
+                    </button>
+                    <a class="btn btn-primary" th:href="@{/deleteImobil/{someID}(someID=${imobil1.id})}">Delete Imobil</a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
