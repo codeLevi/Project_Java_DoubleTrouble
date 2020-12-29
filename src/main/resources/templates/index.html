@@ -13,56 +13,143 @@
     <link rel="stylesheet" th:href="@{/vendor/perfect-scrollbar/perfect-scrollbar.css}">
     <link rel="stylesheet" th:href="@{/css/util.css}">
     <link rel="stylesheet" th:href="@{/css/main.css}">
-    <script type="text/javascript" th:src="@{/js/imobil.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/modal.css}">
+
+
 
 </head>
 <body>
 
 
 
-    <div id="form_create_div" style="font-size: 15px">
-        <form id="form_create" th:action="@{/addImobil}" th:object="${imobilNou}" method="post">
-            <label>Adresa:</label>
-                <input type="text" th:field="*{adresa}"/>
-            <label>Agent:</label>
-                <input type="text"  th:field="*{agent}"/>
-            <label>Nr. Camere:</label>
-                <input type="number"  th:field="*{nrCamere}"/>
-            <label>Suprafata:</label>
-                <input type="number"  th:field="*{suprafata}"/>
-            <label>Tipul:</label>
-            <select name="tip" id="tip" th:field="*{tipul}">
-                <option value="Chirie">Chirie</option>
-                <option value="Vanzare">Vanzare</option>
-            </select>
-            <button type="submit">Save</button>
-        </form>
-    </div>
+<!--    <div id="form_create_div" style="font-size: 15px">-->
+<!--        <form id="form_create" th:action="@{/addImobil}" th:object="${imobilNou}" method="post">-->
+<!--            <label>Adresa:</label>-->
+<!--                <input type="text" th:field="*{adresa}"/>-->
+<!--            <label>Agent:</label>-->
+<!--                <input type="text"  th:field="*{agent}"/>-->
+<!--            <label>Nr. Camere:</label>-->
+<!--                <input type="number"  th:field="*{nrCamere}"/>-->
+<!--            <label>Suprafata:</label>-->
+<!--                <input type="number"  th:field="*{suprafata}"/>-->
+<!--            <label>Tipul:</label>-->
+<!--            <select name="tip" id="tip" th:field="*{tipul}">-->
+<!--                <option value="Chirie">Chirie</option>-->
+<!--                <option value="Vanzare">Vanzare</option>-->
+<!--            </select>-->
+<!--            <button type="submit">Save</button>-->
+<!--        </form>-->
+<!--    </div>-->
 
-    <div id="form_update_div" style="display: none;font-size: 15px">
-        <form onsubmit="document.getElementById('form_update_div').style.display = 'none'" id="form_update"
+<!--    <div id="form_update_div" style="display: none;font-size: 15px">-->
+<!--        <form onsubmit="document.getElementById('form_update_div').style.display = 'none'" id="form_update"-->
+<!--              th:action="@{/updateImobil}" th:object="${imobilVechi}" method="post">-->
+
+<!--                <input style="display:none" type="number" th:placeholder="id" th:field="*{id}" readonly/>-->
+<!--            <label>Adresa</label>-->
+<!--                <input type="text" th:field="*{adresa}"/>-->
+<!--            <label>Agent</label>-->
+<!--                <input type="text" th:field="*{agent}"/>-->
+<!--            <label>Nr. Camere</label>-->
+<!--                <input type="number"th:field="*{nrCamere}"/>-->
+<!--            <label>Suprafata</label>-->
+<!--                <input type="number" th:field="*{suprafata}"/>-->
+<!--            <label>Tipul</label>-->
+<!--            <select name="tip"  th:field="*{tipul}">-->
+<!--                <option value="Chirie">Chirie</option>-->
+<!--                <option value="Vanzare">Vanzare</option>-->
+<!--            </select>-->
+<!--            <button type="submit">Update</button>-->
+<!--        </form>-->
+<!--    </div>-->
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="form-create" action="" th:action="@{/addImobil}" th:object="${imobilNou}" method="post">
+            <div class="form-row">
+
+                <div class="form-wrapper">
+                    <label >Adresa *</label>
+                    <input required type="text" class="form-control" th:field="*{adresa}">
+                </div>
+                <div class="form-wrapper">
+                    <label >Agent *</label>
+                    <input required type="text" class="form-control" th:field="*{agent}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-wrapper">
+                    <label >Nr. Camere *</label>
+                    <input required type="number"  class="form-control" th:field="*{nrCamere}" >
+                </div>
+                <div class="form-wrapper">
+                    <label>Suprafata *</label>
+                    <input required type="number"  class="form-control" th:field="*{suprafata}">
+                </div>
+            </div>
+            <div class="form-row last">
+                <div class="form-wrapper">
+                    <label>Tip *</label>
+                    <select name="" class="form-control" th:field="*{tipul}">
+                        <option value="Chirie">Chirie</option>
+                        <option value="Vanzare">Vanzare</option>
+                    </select>
+                    <i class="zmdi zmdi-chevron-down"></i>
+                </div>
+            </div>
+            <button class="myBtn" type="submit">Salvare</button>
+        </form>
+        <form id="form-update" style="display: none" onsubmit="document.getElementById('form-update').style.display = 'none';document.getElementById('form-create').style.display = 'block'"
               th:action="@{/updateImobil}" th:object="${imobilVechi}" method="post">
-
-                <input style="display:none" type="number" th:placeholder="id" th:field="*{id}" readonly/>
-            <label>Adresa</label>
-                <input type="text" th:field="*{adresa}"/>
-            <label>Agent</label>
-                <input type="text" th:field="*{agent}"/>
-            <label>Nr. Camere</label>
-                <input type="number"th:field="*{nrCamere}"/>
-            <label>Suprafata</label>
-                <input type="number" th:field="*{suprafata}"/>
-            <label>Tipul</label>
-            <select name="tip"  th:field="*{tipul}">
-                <option value="Chirie">Chirie</option>
-                <option value="Vanzare">Vanzare</option>
-            </select>
-            <button type="submit">Update</button>
+            <div class="form-row">
+                <div class="form-wrapper">
+                    <input style="display: none" required type="text" class="form-control" th:field="*{id}" readonly>
+                </div>
+                <div class="form-wrapper">
+                    <label >Adresa *</label>
+                    <input required type="text" class="form-control" th:field="*{adresa}">
+                </div>
+                <div class="form-wrapper">
+                    <label >Agent *</label>
+                    <input required type="text" class="form-control" th:field="*{agent}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-wrapper">
+                    <label >Nr. Camere *</label>
+                    <input required type="number"  class="form-control" th:field="*{nrCamere}" >
+                </div>
+                <div class="form-wrapper">
+                    <label>Suprafata *</label>
+                    <input required type="number"  class="form-control" th:field="*{suprafata}">
+                </div>
+            </div>
+            <div class="form-row last">
+                <div class="form-wrapper">
+                    <label>Tip *</label>
+                    <select name="" class="form-control" th:field="*{tipul}">
+                        <option value="Chirie">Chirie</option>
+                        <option value="Vanzare">Vanzare</option>
+                    </select>
+                    <i class="zmdi zmdi-chevron-down"></i>
+                </div>
+            </div>
+            <button class="myBtn" type="submit">Actualizare</button>
         </form>
     </div>
+
+</div>
 
     <div class="limiter">
+
         <div class="container-table100">
+            <button class="myBtn">Adaugare imobil</button>
             <div class="wrap-table100">
                 <div class="table100">
                     <table>
@@ -102,5 +189,7 @@
             </div>
         </div>
     </div>
+<script type="text/javascript" th:src="@{/js/imobil.js}"></script>
+<script type="text/javascript" th:src="@{/js/modal.js}"></script>
 </body>
 </html>
