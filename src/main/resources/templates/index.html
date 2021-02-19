@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Tabel Imobile</title>
+    <title>Tabel Biciclete</title>
     <meta charset="ISO-8859-1"/>
 <!--    <link rel="stylesheet" th:href="@{/css/styles.css}"/>-->
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
@@ -75,30 +75,30 @@
             <div class="form-row">
 
                 <div class="form-wrapper">
-                    <label >Adresa *</label>
+                    <label >Nume *</label>
                     <input required type="text" class="form-control" th:field="*{adresa}">
                 </div>
                 <div class="form-wrapper">
-                    <label >Agent *</label>
+                    <label >Prenume *</label>
                     <input required type="text" class="form-control" th:field="*{agent}">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-wrapper">
-                    <label >Nr. Camere *</label>
+                    <label >Nr biciclete *</label>
                     <input required type="number"  class="form-control" th:field="*{nrCamere}" >
                 </div>
                 <div class="form-wrapper">
-                    <label>Suprafata *</label>
+                    <label>Nr Tel *</label>
                     <input required type="number"  class="form-control" th:field="*{suprafata}">
                 </div>
             </div>
             <div class="form-row last">
                 <div class="form-wrapper">
-                    <label>Tip *</label>
+                    <label>Oras *</label>
                     <select name="" class="form-control" th:field="*{tipul}">
-                        <option value="Chirie">Chirie</option>
-                        <option value="Vanzare">Vanzare</option>
+                        <option value="Cluj-Napoca">Cluj-Napoca</option>
+                        <option value="Sfantu Gheorghe">Sfantu Gheorghe</option>
                     </select>
                     <i class="zmdi zmdi-chevron-down"></i>
                 </div>
@@ -112,30 +112,30 @@
                     <input style="display: none" required type="text" class="form-control" th:field="*{id}" readonly>
                 </div>
                 <div class="form-wrapper">
-                    <label >Adresa *</label>
+                    <label >Nume *</label>
                     <input required type="text" class="form-control" th:field="*{adresa}">
                 </div>
                 <div class="form-wrapper">
-                    <label >Agent *</label>
+                    <label >Prenume *</label>
                     <input required type="text" class="form-control" th:field="*{agent}">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-wrapper">
-                    <label >Nr. Camere *</label>
+                    <label >Nr Biciclete *</label>
                     <input required type="number"  class="form-control" th:field="*{nrCamere}" >
                 </div>
                 <div class="form-wrapper">
-                    <label>Suprafata *</label>
+                    <label>Nr Tel *</label>
                     <input required type="number"  class="form-control" th:field="*{suprafata}">
                 </div>
             </div>
             <div class="form-row last">
                 <div class="form-wrapper">
-                    <label>Tip *</label>
+                    <label>Oras *</label>
                     <select name="" class="form-control" th:field="*{tipul}">
-                        <option value="Chirie">Chirie</option>
-                        <option value="Vanzare">Vanzare</option>
+                        <option value="Chirie">Cluj-Napoca</option>
+                        <option value="Vanzare">Sfantu Gheorghe</option>
                     </select>
                     <i class="zmdi zmdi-chevron-down"></i>
                 </div>
@@ -149,18 +149,18 @@
     <div class="limiter">
 
         <div class="container-table100">
-            <button class="myBtn">Adaugare imobil</button>
+            <button class="myBtn">Rezervare Bicileta</button>
             <div class="wrap-table100">
                 <div class="table100">
                     <table>
                         <thead>
                         <tr class="table100-head">
                             <th class="column1">ID</th>
-                            <th class="column2">Adresa</th>
-                            <th class="column3">Agent</th>
-                            <th class="column4">Nr Camere</th>
-                            <th class="column5">Suprafata</th>
-                            <th class="column6">Tip</th>
+                            <th class="column2">Nume</th>
+                            <th class="column3">Prenume</th>
+                            <th class="column4">Nr Biciclete</th>
+                            <th class="column5">Nr tel</th>
+                            <th class="column6">Oras</th>
                             <th class="column7"></th>
                         </tr>
                         </thead>
